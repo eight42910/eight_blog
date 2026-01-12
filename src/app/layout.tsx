@@ -54,16 +54,19 @@ export default function RootLayout({
         <a href="#content" className="skip-link">
           Skip to content
         </a>
-        <div className="mx-auto flex min-h-screen w-full max-w-[90ch] flex-col px-6">
-          <header className="border-b border-[color:var(--color-border)] py-10">
+        <div className="mx-auto flex min-h-screen w-full max-w-[84ch] flex-col px-6">
+          <header className="border-b border-[color:var(--color-border)] py-12">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div className="space-y-2">
-                <Link href="/" className="text-2xl font-semibold tracking-tight">
+                <Link href="/" className="text-2xl font-semibold tracking-tight md:text-3xl">
                   {site.title}
                 </Link>
-                <p className="text-sm text-[color:var(--color-muted)]">{site.description}</p>
+                <p className="max-w-[50ch] text-sm text-[color:var(--color-muted)]">{site.description}</p>
               </div>
-              <nav className="flex flex-wrap items-center gap-6 text-sm font-medium text-[color:var(--color-muted)]">
+              <nav
+                className="flex flex-wrap items-center gap-6 text-sm font-medium text-[color:var(--color-muted)]"
+                aria-label="Primary"
+              >
                 <Link className="transition hover:text-[color:var(--color-fg)]" href="/posts">
                   Posts
                 </Link>
@@ -76,7 +79,7 @@ export default function RootLayout({
               </nav>
             </div>
           </header>
-          <main id="content" className="flex-1 py-12">
+          <main id="content" className="flex-1 py-14 md:py-16">
             {children}
           </main>
           <footer className="border-t border-[color:var(--color-border)] py-10 text-sm text-[color:var(--color-muted)]">

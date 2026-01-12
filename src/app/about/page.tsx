@@ -1,23 +1,25 @@
 export const metadata = {
   title: "About",
-  description: "About Minimal Notes.",
+  description: "About Wine, Food, and AI.",
 };
 
 export default function AboutPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-2">
-        <h1 className="text-3xl font-semibold tracking-tight">About</h1>
-        <p className="text-[color:var(--color-muted)]">このブログの方針と、書く人について。</p>
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">About</h1>
+        <p className="max-w-[60ch] text-[color:var(--color-muted)]">
+          このブログの方針と、記録の軸。
+        </p>
       </header>
       <div className="markdown">
         <p>
-          Minimal Notes は「究極にシンプルなのに、品があり、静かにかっこいい」ことを目指した個人ブログです。
-          過剰な装飾は避け、タイポグラフィと余白で読みやすさを整えています。
+          Wine, Food, and AI は、ワインの学習ログ、食事のペアリング、AI活用の実験を記録する個人ブログです。
+          文章と余白を主役にして、静かな読み心地を優先します。
         </p>
         <p>
-          書き手は Eito。プロダクト設計と実装の間にある曖昧さが好きで、言葉の密度を整えることに関心があります。
-          ここでは観察と設計のメモを短く記録していきます。
+          ワインはテイスティングと学習の積み上げを。食事は健康的で最高に美味しい体験を。
+          AIは手間や代替の可能性を探り、日常を整えるための道具として活用します。
         </p>
       </div>
     </div>

@@ -34,8 +34,8 @@ export default function TagPage({ params }: PageProps) {
   return (
     <div className="space-y-10">
       <header className="space-y-2">
-        <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Tag</p>
-        <h1 className="text-3xl font-semibold tracking-tight">{tag.tag}</h1>
+        <p className="text-xs uppercase tracking-[0.32em] text-[color:var(--color-muted)]">Tag</p>
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{tag.tag}</h1>
         <p className="text-[color:var(--color-muted)]">{tag.count} posts</p>
       </header>
       <PostList posts={posts} />

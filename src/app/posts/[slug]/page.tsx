@@ -5,15 +5,19 @@ import { formatDate } from "@/lib/format";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
+
+export const dynamic = "force-static";
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {};
@@ -37,7 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -48,7 +53,9 @@ export default async function PostPage({ params }: PageProps) {
       <header className="space-y-4">
         <p className="text-sm text-[color:var(--color-muted)]">{formatDate(post.date)}</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{post.title}</h1>
-        <p className="text-lg text-[color:var(--color-muted)]">{post.description}</p>
+        <p className="text-lg text-[color:var(--color-muted)] leading-relaxed">
+          {post.description}
+        </p>
         <TagList tags={post.tags} />
       </header>
       <div

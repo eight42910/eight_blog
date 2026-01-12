@@ -17,7 +17,7 @@ export default function TagList({ tags, className }: TagListProps) {
         <li key={tag}>
           <Link
             href={`/tags/${slugifyTag(tag)}`}
-            className="rounded-full border border-transparent bg-[color:var(--color-accent-soft)] px-3 py-1 text-[color:var(--color-accent)] transition hover:bg-transparent hover:border-[color:var(--color-accent)]"
+            className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[color:var(--color-muted)] transition hover:border-[color:var(--color-accent)] hover:bg-[color:var(--color-accent-soft)] hover:text-[color:var(--color-fg)]"
           >
             {tag}
           </Link>
